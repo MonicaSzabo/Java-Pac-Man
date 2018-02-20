@@ -51,8 +51,8 @@ public class Player extends Rectangle {
 	}
 	
 	public void render(Graphics g) {
-		g.setColor(Color.yellow);
-		g.fillRect(x, y, width, height);
+		SpriteSheet sheet = Game.spritesheet;
+		g.drawImage(sheet.getSprite(545, 173),x,y,32,32,null);
 	}
 	
 }

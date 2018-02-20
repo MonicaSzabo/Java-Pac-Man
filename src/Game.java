@@ -21,6 +21,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
 	
 	public static Player player;
 	public static Level level;
+	public static SpriteSheet spritesheet;
 	
 	public Game() {
 		Dimension dimension = new Dimension(Game.WIDTH, Game.HEIGHT);
@@ -31,6 +32,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
 		addKeyListener(this);
 		player = new Player(Game.WIDTH/2, Game.HEIGHT/2);
 		level = new Level("/maps/map00.png");
+		spritesheet = new SpriteSheet("/sprites/spritesheet.png");
 	}
 	
 	public synchronized void start() {
