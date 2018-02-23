@@ -1,4 +1,3 @@
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
@@ -29,7 +28,18 @@ public class Player extends Rectangle {
 		}
 		
 		if(level.apples.size() == 0) {
-			//Game end, won the level
+			//You win
+			Game.player = new Player(0, 0);
+			Game.level = new Level("/maps/map00.png");
+			return;
+		}
+		
+		for(int i = 0; i < Game.level.enemies.size(); i++) {
+			Enemy en = Game.level.enemies.get(i);
+			if(en.intersects(this)) {
+				//You lose
+				System.exit(1);
+			}
 		}
 	}
 	
@@ -52,7 +62,7 @@ public class Player extends Rectangle {
 	
 	public void render(Graphics g) {
 		SpriteSheet sheet = Game.spritesheet;
-		g.drawImage(sheet.getSprite(545, 173),x,y,32,32,null);
+		g.drawImage(sheet.getSprite(545, 173),x,y,width,height,null);
 	}
 	
 }
